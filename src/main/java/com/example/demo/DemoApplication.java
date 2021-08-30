@@ -78,5 +78,34 @@ public class DemoApplication {
         return String.format("This function is to generate a retweet with its refer tid %s and timeline %s", tid,timeline);
     }
 
-    
+    @GetMapping("/twitter/like")
+    public String like(@RequestParam(value = "tid", defaultValue = "11111") String tid, @RequestParam(value = "status", defaultValue = "True") String status) {
+        return String.format("This function is to like tid %s with status %s", tid, status);
+    }
+
+    @GetMapping("/twitter/dislike")
+    public String dislike(@RequestParam(value = "tid", defaultValue = "11111") String tid, @RequestParam(value = "status", defaultValue = "True") String status) {
+        return String.format("This function is to dislike tid %s with status %s", tid, status);
+    }
+
+    @GetMapping("/twitter/comment")
+    public String comment(@RequestParam(value = "content", defaultValue = "awww") String content, @RequestParam(value = "tid_refer", defaultValue = "11111") String tid, @RequestParam(value = "timeline", defaultValue = "Jan 11") String time) {
+        return String.format("This function is to leave a comment on a refered tid %s, with content = %s and time is %s",tid,content,time);
+    }
+
+    @GetMapping("/trending/currenthotfeed")
+    public String getcurrenthotfeed() {
+        return "This function is to get current hot feed for everyone (national wide)";
+    }
+
+    @GetMapping("/trending/personalize_recommendation_feed")
+    public String get_personalize_recommend_feed(@RequestParam(value = "uid" , defaultValue = "111111") String uid) {
+        return String.format("This function is to get personalized feeding for uid %s",uid);
+    }
+
+    @GetMapping("/trending/related_feed")
+    public String get_related_feed(@RequestParam(value = "tid", defaultValue = "11111") String tid) {
+        return String.format("This function is to get related feed of tid %s",tid);
+    }
+
 }
