@@ -98,7 +98,7 @@ public class DemoApplication {
         return "This function is to get current hot feed for everyone (national wide)";
     }
 
-    @GetMapping("/trending/personalize_recommendation_feed")
+    @GetMapping("/trending/personalize_recommend_feed")
     public String get_personalize_recommend_feed(@RequestParam(value = "uid" , defaultValue = "111111") String uid) {
         return String.format("This function is to get personalized feeding for uid %s",uid);
     }
