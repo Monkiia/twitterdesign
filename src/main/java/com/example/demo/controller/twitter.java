@@ -1,20 +1,36 @@
 package com.example.demo.controller;
 
+import com.example.demo.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.DAO.postDAO;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 @SpringBootApplication
 
 @RestController
+
 public class twitter {
+    @Autowired
+    postDAO DAO;
     // ****** Single Rest Controller *******
 
+
     @GetMapping("/twitter")
-    public String twitter() {
-        return "this is the info page for posts";
+    public String twitter() throws ParseException {
+        DAO.writePost(1,"YoYo", 4);
+        return "successful write";
     }
+
+
 
     @GetMapping("/twitter/generatetid")
     public String generate_tid(@RequestParam(value = "uid", defaultValue = "000000000") int user_id) {

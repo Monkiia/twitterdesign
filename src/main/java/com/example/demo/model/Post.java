@@ -1,11 +1,12 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
 @Table(name = "Post")
-public class Post {
+public class Post implements Serializable {
     @Id
     @Column(name = "tid", nullable = false)
     private int tid;
@@ -14,7 +15,7 @@ public class Post {
     @Column(name = "uid",nullable = false)
     private int uid;
 
-    @Column(name = "time",nullable = false)
+    @Column(name = "time")
     private Date time;
 
     @Column(name = "refer_tid")

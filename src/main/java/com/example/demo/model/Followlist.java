@@ -2,7 +2,8 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 
-
+@Entity
+@Table(name = "Followlist")
 public class Followlist {
     @Id
     @GeneratedValue
